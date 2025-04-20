@@ -1,9 +1,10 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Raleway_700Bold, useFonts } from "@expo-google-fonts/raleway";
 import { Nunito_400Regular, Nunito_700Bold } from "@expo-google-fonts/nunito";
 import { LinearGradient } from "expo-linear-gradient";
 import { Styles } from "@/styles/onboarding/onboard";
+import { router } from "expo-router";
 
 export default function OnboardingScreen() {
   let [fontLoaded, fontError] = useFonts({
@@ -39,6 +40,39 @@ export default function OnboardingScreen() {
             source={require("@/assets/onboarding/shape_2.png")}
             style={Styles.titleTextShape2}
           />
+        </View>
+        <View>
+          <Image
+            source={require("@/assets/onboarding/shape_6.png")}
+            style={Styles.titleTextShape3}
+          />
+          <Text style={[Styles.titleText, { fontFamily: "Raleway_700Bold" }]}>
+            Becodemy
+          </Text>
+        </View>
+
+        <View style={Styles.dscpWrapper}>
+          <Text style={[Styles.dscpText, { fontFamily: "Nunito_400Regular" }]}>
+            Learn to code with the best online courses, tutorials and resources
+            for free.
+          </Text>
+        </View>
+        <View>
+          <TouchableOpacity
+            style={Styles.buttonWrapper}
+            onPress={() => {
+              router.push("/(routes)/welcome-intro");
+            }}
+          >
+            <Text
+              style={[
+                { color: "#fff", fontFamily: "Nunito_700Bold" },
+                { fontSize: 16 },
+              ]}
+            >
+              Get Started
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </LinearGradient>
